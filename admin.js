@@ -18,16 +18,38 @@ function addTeam() {
   document.getElementById("teamName").value = "";
 }
 
+function removeTeam() {
+  let teamToRemove = document.getElementById("removeTeamSelect").value;
+  if (!teamToRemove) return;
+
+  data.teams = data.teams.filter(team => team !== teamToRemove);
+
+  data.matches = data.matches.filter(match =>
+    match.t1 !== teamToRemove && match.t2 !== teamToRemove
+  );
+
+  let currentMatch = localStorage.getItem("currentMatch");
+  if (currentMatch && currentMatch.includes(teamToRemove)) {
+    localStorage.removeItem("currentMatch");
+  }
+
+  save();
+  updateTeams();
+}
+
 function updateTeams() {
   let t1 = document.getElementById("team1");
   let t2 = document.getElementById("team2");
+  let removeSelect = document.getElementById("removeTeamSelect");
 
   t1.innerHTML = "";
   t2.innerHTML = "";
+  removeSelect.innerHTML = "";
 
   data.teams.forEach(team => {
     t1.innerHTML += `<option>${team}</option>`;
     t2.innerHTML += `<option>${team}</option>`;
+    removeSelect.innerHTML += `<option>${team}</option>`;
   });
 }
 

@@ -13,6 +13,10 @@
 <input id="teamName" placeholder="Lagnamn">
 <button onclick="addTeam()">Lägg till</button>
 
+<h2>Ta bort lag</h2>
+<select id="removeTeamSelect"></select>
+<button onclick="removeTeam()">Ta bort lag</button>
+
 <h2>Starta match</h2>
 <select id="team1"></select>
 <select id="team2"></select>
@@ -24,31 +28,6 @@
 <button onclick="saveResult()">Spara resultat</button>
 
 
-<h2>Resultat</h2>
-<table id="resultsTable">
-<thead>
-<tr>
-<th>Lag 1</th>
-<th>Lag 2</th>
-<th>Resultat</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-
-<h2>Tabell</h2>
-<table id="leagueTable">
-<thead>
-<tr>
-<th>Lag</th>
-<th>Poäng</th>
-<th>Gjorda</th>
-<th>Insläppta</th>
-<th>+/-</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
 
 
 <script src="admin.js"></script>
