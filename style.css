@@ -1,12 +1,12 @@
 body {
   font-family: Arial;
-  background: #111;
-  color: white;
+  background: #ffffff;
+  color: rgb(3, 3, 3);
   text-align: center;
 }
 
 h1 {
-  color: #00ff88;
+  color: #211edd;
 }
 
 table {
@@ -16,6 +16,6 @@ table {
 }
 
 td, th {
-  border: 1px solid white;
+  border: 1px solid rgb(5, 5, 5);
   padding: 10px;
 }
