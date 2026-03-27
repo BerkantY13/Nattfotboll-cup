@@ -36,7 +36,6 @@ function removeTeam() {
   save();
   updateTeams();
 }
-
 function updateTeams() {
   let t1 = document.getElementById("team1");
   let t2 = document.getElementById("team2");
@@ -46,10 +45,17 @@ function updateTeams() {
   t2.innerHTML = "";
   removeSelect.innerHTML = "";
 
+  if (data.teams.length === 0) {
+    t1.innerHTML = '<option value="">Inga lag</option>';
+    t2.innerHTML = '<option value="">Inga lag</option>';
+    removeSelect.innerHTML = '<option value="">Inga lag</option>';
+    return;
+  }
+
   data.teams.forEach(team => {
-    t1.innerHTML += `<option>${team}</option>`;
-    t2.innerHTML += `<option>${team}</option>`;
-    removeSelect.innerHTML += `<option>${team}</option>`;
+    t1.innerHTML += `<option value="${team}">${team}</option>`;
+    t2.innerHTML += `<option value="${team}">${team}</option>`;
+    removeSelect.innerHTML += `<option value="${team}">${team}</option>`;
   });
 }
 
@@ -80,6 +86,17 @@ function saveResult() {
 
   document.getElementById("score1").value = "";
   document.getElementById("score2").value = "";
+}
+
+function clearAllData() {
+  data = {
+    teams: [],
+    matches: []
+  };
+
+  localStorage.removeItem("currentMatch");
+  save();
+  updateTeams();
 }
 
 updateTeams();
