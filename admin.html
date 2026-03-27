@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<title>Adminpanel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Adminpanel</h1>
+
+<h2>Lägg till lag</h2>
+<input id="teamName" placeholder="Lagnamn">
+<button onclick="addTeam()">Lägg till</button>
+
+<h2>Starta match</h2>
+<select id="team1"></select>
+<select id="team2"></select>
+<button onclick="startMatch()">Starta match</button>
+
+<h2>Resultat</h2>
+<input id="score1" placeholder="Lag 1 mål">
+<input id="score2" placeholder="Lag 2 mål">
+<button onclick="saveResult()">Spara resultat</button>
+
+<script src="admin.js"></script>
+</body>
+</html>
